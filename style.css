@@ -1,341 +1,234 @@
-/* นำเข้าฟอนต์และตั้งค่าพื้นฐาน */
-* {
-    box-sizing: border-box;
-    font-family: 'Prompt', sans-serif;
-    margin: 0;
-    padding: 0;
-}
+/* style.css - โทนสว่าง คลีน มินิมอล + ปุ่มครบชุด */
+
+/* 1. ฟอนต์และพื้นหลัง */
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@400;600&family=Sarabun:wght@300;400;600&display=swap');
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-    padding: 40px 20px;
-    color: #2c3e50;
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* เปลี่ยนสีพื้นหลังเป็นเทาอมฟ้าสว่างๆ ให้ตาไม่ล้า */
+    background-color: #f4f7f6; 
+    color: #333;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    color: #1a252f;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.header p {
-    color: #7f8c8d;
-    font-weight: 300;
-}
-
-.bell-shake {
-    color: #f1c40f;
-    animation: shake 2s infinite ease-in-out;
-}
-
-/* Container & Cards */
-.container {
-    display: flex;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
-    flex: 1;
-    min-width: 320px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-header {
-    background: #2c3e50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.staff-header {
-    background: #34495e;
-}
-
-.card-header h2 {
-    font-size: 1.5rem;
+h1, h2, h3 {
+    font-family: 'Mitr', sans-serif;
     font-weight: 600;
 }
 
-/* ฝั่งลูกค้า (Input & Buttons) */
+/* 🌟 2. ส่วนหัว (Header) - ปรับใหม่ให้ดูสว่าง ทันสมัย */
+.header {
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* ไล่สีเขียวมิ้นต์-เขียวอมฟ้า */
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    border-bottom: none; 
+    box-shadow: 0 4px 15px rgba(22, 160, 133, 0.2); 
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
+}
+
+.header p {
+    color: #e0f2f1;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+/* 3. กล่อง Container จัดให้อยู่กึ่งกลาง */
+.container {
+    max-width: 600px; /* ขนาดกำลังสวยสำหรับมือถือและหน้าลูกค้า */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* 🌟 ปรับ Card ให้ดูละมุนขึ้น */
+.card {
+    background-color: white;
+    border-radius: 16px; /* ให้โค้งมนขึ้นอีก */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06); /* เงาฟุ้งๆ นุ่มๆ */
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #ffffff; /* เปลี่ยนส่วนหัวการ์ดให้เป็นสีขาวกลืนกับพื้น */
+    color: #2c3e50; /* ตัวอักษรสีเทาเข้ม */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f0f3f2;
+}
+
+.card-header h2 { 
+    margin: 0; 
+    font-size: 1.5rem; 
+}
+
+.card-body {
+    padding: 30px 25px; /* เพิ่มพื้นที่หายใจ */
+}
+
+/* 🌟 4. ส่วนของฝั่งลูกค้า (ปุ่มและช่องกรอก) 🌟 */
 .input-group {
-    padding: 20px 25px 0;
+    margin-bottom: 25px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: bold;
+    margin-bottom: 10px;
     color: #34495e;
 }
 
-input {
+#tableNumber {
     width: 100%;
     padding: 15px;
+    font-size: 1.2rem;
     border: 2px solid #e0e6ed;
-    border-radius: 12px;
-    font-size: 1.2rem;
+    border-radius: 10px;
+    box-sizing: border-box;
     text-align: center;
-    transition: border-color 0.3s;
+    font-family: 'Mitr', sans-serif;
+    transition: all 0.3s;
+    background-color: #f8faf9;
 }
 
-input:focus {
+#tableNumber:focus {
+    border-color: #1abc9c;
+    background-color: white;
     outline: none;
-    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.1);
 }
 
-.button-group {
-    padding: 25px;
+/* จัดเรียงปุ่มให้เต็มบรรทัดและมีช่องไฟ */
+.action-buttons {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+/* สไตล์ปุ่มกด */
 .btn {
-    padding: 16px;
+    padding: 16px 20px;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
+    font-family: 'Mitr', sans-serif;
+    transition: all 0.2s;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.btn:active {
-    transform: scale(0.96);
-}
-
-.btn-call { background: linear-gradient(135deg, #3498db, #2980b9); }
-.btn-call:hover { box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4); }
-
-.btn-menu { background: linear-gradient(135deg, #f1c40f, #f39c12); }
-.btn-menu:hover { box-shadow: 0 6px 20px rgba(241, 196, 15, 0.4); }
-
-.btn-bill { background: linear-gradient(135deg, #e74c3c, #c0392b); }
-.btn-bill:hover { box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4); }
-
-/* ฝั่ง Dashboard */
-.status-bar {
-    padding: 10px 20px;
-    background: #f8f9fa;
-    border-bottom: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.pulse-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #2ecc71;
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
-}
-
-.request-list {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-/* แต่งหน้าตา Card แจ้งเตือน */
-.request-item {
-    background: white;
-    border-radius: 12px;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border-left: 6px solid #ccc;
-    animation: slideIn 0.3s ease-out forwards;
-}
-
-.request-item.เรียกพนักงาน { border-left-color: #3498db; }
-.request-item.ขอเมนู { border-left-color: #f1c40f; }
-.request-item.เก็บเงิน { border-left-color: #e74c3c; }
-
-.req-info strong {
-    font-size: 1.2rem;
-    color: #2c3e50;
-}
-
-.req-info span {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    display: block;
-    margin-top: 4px;
-}
-
-.done-btn {
-    background: #2ecc71;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-
-.done-btn:hover { background: #27ae60; }
-
-/* แอนิเมชัน */
-@keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
-    20%, 40%, 60%, 80% { transform: rotate(10deg); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
-}
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-/* =========================================
-   Modal (Popup เมนูอาหาร)
-   ========================================= */
-.modal {
-    display: none; /* ซ่อนไว้ก่อน จะแสดงเมื่อกดปุ่ม */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังสีดำโปร่งใส */
-    backdrop-filter: blur(5px);
-    align-items: center;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+
+/* ปรับสีปุ่มให้ดูละมุนขึ้น */
+.btn-call { background-color: #3498db; }
+.btn-menu { background-color: #f39c12; }
+.btn-bill { background-color: #e74c3c; }
+
+/* 🌟 5. หน้าต่างเมนู (Modal) ที่ลอยออกมา 🌟 */
+#menuModal {
+    display: none; /* ซ่อนไว้จนกว่าจะกดปุ่ม */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); /* พื้นหลังดำโปร่งแสง */
+    z-index: 1000;
     justify-content: center;
-    animation: fadeIn 0.3s ease;
+    align-items: center;
+    backdrop-filter: blur(4px);
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 500px;
+    background: white;
     width: 90%;
-    max-height: 90vh;
+    max-width: 450px;
+    max-height: 85vh;
+    border-radius: 16px;
     overflow-y: auto;
-    text-align: center;
+    padding: 25px;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
-.modal-content h2 {
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
-
-.menu-image {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.close-btn {
+.close-modal {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #e74c3c;
-    font-size: 30px;
-    font-weight: bold;
+    top: 15px; right: 20px;
+    font-size: 1.5rem;
     cursor: pointer;
+    color: #95a5a6;
+    background: none;
+    border: none;
     transition: 0.2s;
 }
 
-.close-btn:hover {
-    color: #c0392b;
-    transform: scale(1.1);
+.close-modal:hover { color: #e74c3c; }
+
+/* 🌟 6. ส่วนของฝั่งพนักงาน (Dashboard) 🌟 */
+.status-bar {
+    background-color: #f8faf9;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    border-bottom: 1px solid #e0e6ed;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-/* =========================================
-   สไตล์สำหรับรายการเมนูอาหาร (สร้างจาก JS)
-   ========================================= */
-.menu-container {
-    text-align: left;
-    margin-top: 20px;
+.pulse-dot {
+    height: 10px; width: 10px;
+    background-color: #1abc9c;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #1abc9c; 
 }
 
-.menu-category {
-    color: #e74c3c;
-    margin: 15px 0 10px 0;
-    font-size: 1.2rem;
-    background-color: #fdf3f2;
-    padding: 8px 15px;
-    border-radius: 8px;
-}
+.request-list { padding: 20px; }
 
-.menu-item {
+.request-item {
+    background-color: white;
+    border: 1px solid #edf2f0; 
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px;
-    color: #34495e;
-    transition: background-color 0.2s;
+    align-items: flex-start;
+    transition: all 0.3s ease; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
-.menu-item:hover {
-    background-color: #f8f9fa;
-    border-radius: 6px;
+.request-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    border-color: #e0e6ed;
 }
 
-.menu-name {
-    font-weight: 500;
+.req-info { display: flex; gap: 20px; width: 100%; }
+
+.table-box {
+    background-color: #f8faf9;
+    border: 1px solid #e0e6ed;
+    padding: 12px; border-radius: 10px;
+    text-align: center; min-width: 70px; height: fit-content;
 }
 
-.menu-price {
-    font-weight: 600;
-    color: #27ae60;
-}
+.table-label { font-size: 0.8rem; color: #95a5a6; }
+.table-number { font-size: 1.8rem; font-weight: bold; color: #2c3e50; }
 
-.menu-divider {
-    height: 1px;
-    background: #ecf0f1;
-    margin: 5px 0;
+.order-details { flex-grow: 1; }
+.order-type { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.order-time { font-size: 0.85rem; color: #95a5a6; }
+
+.done-btn {
+    background-color: #1abc9c; color: white; border: none; padding: 12px 20px;
+    border-radius: 8px; cursor: pointer; font-weight: bold; font-family: 'Mitr', sans-serif;
+    margin-left: 20px; flex-shrink: 0; transition: all 0.2s; 
 }
-.menu-container { text-align: left; margin-top: 20px; }
-.menu-category { color: #e74c3c; margin: 15px 0 10px 0; font-size: 1.2rem; background-color: #fdf3f2; padding: 8px 15px; border-radius: 8px; }
-.menu-item { display: flex; justify-content: space-between; padding: 10px 15px; color: #34495e; transition: background-color 0.2s; }
-.menu-item:hover { background-color: #f8f9fa; border-radius: 6px; }
-.menu-name { font-weight: 500; }
-.menu-price { font-weight: 600; color: #27ae60; }
-.menu-divider { height: 1px; background: #ecf0f1; margin: 5px 0; }
+.done-btn:hover { background-color: #16a085; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(26, 188, 156, 0.3); }
+.done-btn:active { transform: scale(0.96); }
