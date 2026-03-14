@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard </title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1><i class="fa-solid fa-desktop"></i> ระบบจัดการคิวร้านอาหาร</h1>
+    </div>
+
+    <div class="container">
+        <div class="card staff-section" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-header staff-header">
+                <h2><i class="fa-solid fa-list-check"></i> คิวเรียกพนักงาน (Real-time)</h2>
+            </div>
+            <div class="status-bar">
+                <span class="pulse-dot"></span> 🔴 ระบบกำลังเชื่อมต่อรับข้อมูลสด
+            </div>
+            <div id="requestList" class="request-list">
+                </div>
+        </div>
+    </div>
+
+    <script type="module" src="staff.js"></script>
+</body>
+</html>
