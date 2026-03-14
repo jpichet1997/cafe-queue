@@ -60,15 +60,23 @@ onSnapshot(q, (snapshot) => {
         }
 
         // 🌟 สร้างรายการอาหารในบิล (ถ้ามี)
-        let orderDetailsHtml = '';
-        if (data.type === 'สั่งอาหาร' && data.items && data.items.length > 0) {
-            orderDetailsHtml = `<div style="margin-top: 12px; padding: 12px; background: #fff5eb; border-radius: 8px; border: 1px dashed #e67e22;">
-                <div style="font-weight: bold; margin-bottom: 8px; color: #d35400;"><i class="fa-solid fa-clipboard-list"></i> รายการที่สั่ง:</div>`;
-            data.items.forEach(item => {
-                orderDetailsHtml += `<div style="font-size: 1rem; color: #2c3e50; padding: 3px 0; border-bottom: 1px solid #f9e7d3;">• ${item}</div>`;
-            });
-            orderDetailsHtml += `</div>`;
-        }
+    // 🌟 ส่วนที่ใช้แสดงรายการเครื่องดื่มที่ลูกค้าสั่ง
+let orderDetailsHtml = '';
+
+// แก้ไขบรรทัดนี้: เช็กให้ชื่อตรงกับที่ลูกค้าส่งมา (สั่งเครื่องดื่ม)
+if (data.type === 'สั่งเครื่องดื่ม' && data.items && data.items.length > 0) {
+    orderDetailsHtml = `
+        <div style="margin-top: 12px; padding: 12px; background: #e8f6f0; border-radius: 8px; border: 1px dashed #27ae60;">
+            <div style="font-weight: bold; margin-bottom: 8px; color: #27ae60;">
+                <i class="fa-solid fa-clipboard-list"></i> รายการที่สั่ง:
+            </div>`;
+            
+    data.items.forEach(item => {
+        orderDetailsHtml += `<div style="font-size: 1rem; color: #2c3e50; padding: 5px 0; border-bottom: 1px solid #d1eadd;">• ${item}</div>`;
+    });
+    
+    orderDetailsHtml += `</div>`;
+}
 
         const div = document.createElement('div');
         div.className = `request-item`;
